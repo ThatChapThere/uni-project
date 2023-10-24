@@ -1,0 +1,16 @@
+Books:
+
+1. Thompson, D'Arcy Wentworth. On growth and form. Cambridge University Press, 1961.
+2. Nixon, M., & Aguado, A. (2019). Feature extraction and image processing for computer
+vision. Academic press.
+3. Lestrel, P. E. (Ed.). (1997). Fourier descriptors and their applications in biology.
+Cambridge University Press
+4. Cartwright, Mark. Fourier methods for mathematicians, scientists and engineers.
+Chichester: Ellis Horwood, 1990.
+5. Dryden, I. L., & Mardia, K. V. (2016). Statistical shape analysis: with applications in
+R (Vol. 995). John Wiley & Sons.
+
+Modules:
+
+Machine Learning (for PCA)
+Image processing (I assume this will matter for finding outlines for the purposes of elliptical fourier analysis)
