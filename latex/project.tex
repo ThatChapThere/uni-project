@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{The Fourier Transform}
+
+The Fourier transform is a way of finding constituent frequencies within a function on the real domain.
+The Fourier transform extends the concept of the Fourier series (which openerates on a bounded interval) to the real
+domain.
+
+\subsection{The Fourier Series}
+
+The Fourier series is defined using the equations described below.
+It takes in a single repeating unit of a periodic function and allows us to generate an infinite sum which converges
+to the same function. This is useful because the resultant sum ends up depending on trigonometric functions.
+
+Firstly we have a set of numbers, \(A_0\), \(A_n\) and \(B_n\):
+
+\begin{equation}
+\begin{aligned}
+	A_0 &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
+		s(x) \,dx \\
+	A_n &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
+		s(x) \cos \left(\frac{2\pi nx}{P}\right) \,dx \\
+	A_b &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
+		s(x) \sin \left(\frac{2\pi nx}{P}\right) \,dx \\
+\end{aligned}
+\end{equation}
+
+Here \(A_0\) is a constant, and \(A_n\) and \(B_n\) are functions of \(n\).
+In fact, since both the denominator of the fraction and the range of the integral for \(A_0\) are the same, \(P\),
+\(A_0\) is simply the average around which the function oscillates.
+
+These coefficients allow us to define the Fourier series:
+
+\begin{equation}
+	s(x) \sim A_0 + \sum_{n=1}^{\infty} \left(
+		A_n \cos \left( \frac{2\pi nx}{P} \right) +
+		B_n \sin \left( \frac{2\pi nx}{P} \right)
+	\right)
+\end{equation}
+
+Here we use a \(\sim\) because this series doesn't always converge to the desired function, although in most cases it
+does.
+
+\end{document}

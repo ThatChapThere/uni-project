@@ -1,0 +1,21 @@
+# TeX generation files
+*.aux
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.
+
+# Files that don't really need to be saved to GitHub
+logbook_notes.txt
+FeatureExtractionMarkNixon.pdf
+
+# Makefiles
+**/makefile
+
+# Executables
+code/test
+code/testpp
+code/drawing_test/drawing_test
+code/elliptic_fourier/elliptic_fourier
+
