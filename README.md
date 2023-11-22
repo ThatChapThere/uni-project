@@ -8,12 +8,12 @@ double freqs[] = {1, 1.1, 0.8};
 double mags[] = {1, 1.1, 0.8};
 ```
 
-![wavy waves](https://github.com/ThatChapThere/uni-project/master/images/waves1.png)
+![wavy waves](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/waves1.png)
 
-#Todo:
+# Todo:
 
-* Make this generate images that can be analysed
-* Make the fourier analysis side of the code
-* Make this work elliptically instead of just linearly
+* Make this generate images that can be analysed.
+* Make the fourier analysis side of the code.
+* Make this work elliptically instead of just linearly.
 
 A small start has also been made on a section of the report, although headings and sectioning hasn't been started.
