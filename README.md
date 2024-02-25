@@ -7,7 +7,7 @@ This repository is for my third year project, *Mathematical Methods in Morphomet
 ## Code
 
 So far I have created a program that can generate any waveform created by a sum of sines. You can acomplish this by
-editing the following lines in [drawing_area.cpp](code/elliptic_fourier/drawing_area.cpp).
+editing the following lines in [drawing_area.cpp](code/elliptic_fourier/drawing_area.cpp):
 
 ```cpp
 double freqs[] = {1, 1.1, 0.8};

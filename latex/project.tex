@@ -1,5 +1,10 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage{fourier}
+\usepackage{inconsolata}
+\usepackage{minted}
+\usemintedstyle{tango}
 
 \begin{document}
 
@@ -43,5 +48,22 @@ These coefficients allow us to define the Fourier series:
 
 Here we use a \(\sim\) because this series doesn't always converge to the desired function, although in most cases it
 does.
+
+\cite[p. 150]{nixon:2019}
+\cite{thompson:1961}
+\cite{lestrel:1997}
+\cite{cartwright:1990}
+\cite{dryden:2016}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\section*{Appendix}
+
+\subsection*{main.cpp}
+
+\begin{inputminted}{cpp}{../code/main.cpp}
+\end{inputminted}
+
 
 \end{document}
