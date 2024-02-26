@@ -1,1 +1,27 @@
 Do cover page, template is on Blackboard.
+
+What we have so far is good as notes but needs expanding upon quite a bit more.
+
+Organise differently (low priority, can be done last minute).
+
+Read a paper on the elliptic fourier transform and add as an example to the report.
+
+Something about eigenvalues (depends on number of terms).
+
+Extracting a profile out of the image (chapter 3).
+
+Check Danilo's website (does something similar for leaves).
+
+Invaginations can be an issue if the curve isn't a strict function.
+
+Make sure that the way the data is collected is well reported.
+
+Try to reproduce the results of a paper.
+
+Add more comments to the code.
+
+Try to add code snippets to the document body. Actually pseudocode is better (try to find some pseudocode in a paper for reference).
+
+Talk about code libraries.
+
+Try to be more exact with the mathematics (lemmas, theorems, etc.). Find something rigourous for the elliptic Fourier.
