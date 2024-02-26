@@ -9,6 +9,7 @@
 *.pygstyle
 *.bbl
 *.blg
+*.toc
 
 # Files that don't really need to be saved to GitHub
 **/logbook_notes.txt
