@@ -31,6 +31,7 @@
 \newpage
 \tableofcontents
 
+\newpage
 \section{Introduction}
 \section{The Elliptic Fourier Transform}
 The Fourier transform is a way of finding constituent frequencies within a function on the real domain.
@@ -60,7 +61,6 @@ In fact, since both the denominator of the fraction and the range of the integra
 \(A_0\) is simply the average around which the function oscillates.
 
 These coefficients allow us to define the Fourier series:
-
 \begin{equation}
 	s(x) \sim A_0 + \sum_{n=1}^{\infty} \left(
 		A_n \cos \left( \frac{2\pi nx}{P} \right) +
@@ -70,6 +70,74 @@ These coefficients allow us to define the Fourier series:
 
 Here we use a \(\sim\) because this series doesn't always converge to the desired function, although in most cases it
 does.
+
+\subsection{The Fourier Transform}
+The transform function ($S(t)$) for frequency $f$ is given by
+(\ref{fourier:transform}).
+\begin{equation} \label{fourier:transform}
+	S(t)=\int_{-\infty}^{\infty}s(t)\cdot \mathrm{e}^{-i2\pi ft} dt
+\end{equation}
+
+\subsection{Fourier Analysis}
+
+\subsection{Elliptical Fourier Analysis}
+
+\section{Processing the Images}
+In order to find shapes in our images for the purposes of analysis,
+we will need to detect edges. For this we will use the Canny Edge
+detection method, developed by John F. Canny.
+
+\subsection{Convolution Kernels}
+The most basic aspect of edge detection is the convolution kernel.
+This is an $M{\times}M: \{M=2n+1, n\in\mathbb{N}\}$ matrix
+(an odd sided square matrix).
+Odd side lengths allow the kernel to be centered at each pixel.
+
+If we let the function $f(x,y)$ represent the original image,
+$g(x,y)$ represent the convolved image and $\omega$
+represent the kernel, then:
+\begin{equation}
+	g(x,y)=\sum_{i=-n}^{n}\sum_{j=-n}^{n}\omega(i,j)f(x-i,y-j)
+\end{equation}
+Notice that the coordinates of the kernel are not $1$ to $M$
+as with a traditional matrix, but rather $-n$ to $n$.
+
+The effect of this on an image will be to make each pixel of a
+convolved image a function of the surrounding pixels.
+The simplest convolution matrix is the identity convolution matrix,
+(\ref{convm:identity}).
+\begin{equation}
+	\label{convm:identity}
+	\begin{bmatrix}
+		0 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 0\\
+	\end{bmatrix}
+\end{equation}
+More examples include edge detection kernels like
+(\ref{convm:edge1}) and (\ref{convm:edge2}).
+\begin{center}
+\begin{minipage}{.4\linewidth}
+\begin{equation} \label{convm:edge1}
+	\begin{bmatrix}
+		 0 & -1 &  0\\
+		-1 &  4 & -1\\
+		 0 & -1 &  0\\
+	\end{bmatrix}
+\end{equation}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{equation} \label{convm:edge2}
+	\begin{bmatrix}
+		-1 & -1 & -1\\
+		-1 &  8 & -1\\
+		-1 & -1 & -1\\
+	\end{bmatrix}
+\end{equation}
+\end{minipage}
+\end{center}
+
+\subsection{Canny Edge Detection}
 
 \section{Conclusion}
 Note: these are just example citations.
