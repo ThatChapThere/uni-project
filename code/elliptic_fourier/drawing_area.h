@@ -10,7 +10,11 @@ public:
 	virtual ~GraphArea();
 
 protected:
-	void draw(const Cairo::RefPtr<Cairo::Context>& cr, const int width, const int height);
+	void draw(
+		const Cairo::RefPtr<Cairo::Context>& cr,
+		const int width,
+		const int height
+	);
 	double waveform(double x);
 };
 

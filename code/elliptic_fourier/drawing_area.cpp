@@ -13,8 +13,11 @@ GraphArea::~GraphArea()
 {
 }
 
-void GraphArea::draw(const Cairo::RefPtr<Cairo::Context>& cr, const int width, const int height)
-{
+void GraphArea::draw(
+	const Cairo::RefPtr<Cairo::Context>& cr,
+	const int width,
+	const int height
+) {
 	cr->set_source_rgb(0, 0, 0.5); // blue
 
 	int i = 0;

@@ -1,4 +1,5 @@
-// Credit: https://gnome.pages.gitlab.gnome.org/gtkmm-documentation/sec-helloworld.html
+// Credit:
+// https://gnome.pages.gitlab.gnome.org/gtkmm-documentation/sec-helloworld.html
 #include "test.h"
 #include <gtkmm/application.h>
 

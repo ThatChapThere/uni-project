@@ -1,4 +1,6 @@
-// Credit: https://gnome.pages.gitlab.gnome.org/gtkmm-documentation/chapter-drawingarea.html
+// Credit:
+// https://
+// gnome.pages.gitlab.gnome.org/gtkmm-documentation/chapter-drawingarea.html
 #include "elliptic_fourier.h"
 #include <iostream>
 

@@ -1,21 +1,43 @@
-\documentclass{article}
+\documentclass[12pt,english]{article}
+
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage[a4paper,bindingoffset=0.2in,left=1.25in,right=.75in,top=1in, bottom = 1in, footskip=.25in]{geometry}
 \usepackage{fourier}
 \usepackage{inconsolata}
 \usepackage{minted}
+
+\renewcommand{\baselinestretch}{1.25}
+\graphicspath{ {../images/} }
 \usemintedstyle{tango}
 
 \begin{document}
+\begin{center}
+\includegraphics[scale = 0.5]{LincolnLogo}
+\newline\newline
+\thispagestyle{empty}
+    \textbf{\huge{Classification of Biological Organisms from Images Using Advanced Mathematical Techniques} \\
+    [100pt] \Large{Timothy Smith\\25796944} \\
+    [40pt]\LARGE{Supervised by Dr Danilo Roccatano}\\
+    [50pt]\today \\
+	[40pt]Scientific Report in the $3^{rd}$ Year Module\\ MTH3009 Mathematics Project  }
+\end{center}
 
-\section{The Fourier Transform}
+\newpage
+\section*{Abstract}
 
+\newpage
+\tableofcontents
+
+\section{Introduction}
+\section{The Elliptic Fourier Transform}
 The Fourier transform is a way of finding constituent frequencies within a function on the real domain.
 The Fourier transform extends the concept of the Fourier series (which openerates on a bounded interval) to the real
 domain.
 
 \subsection{The Fourier Series}
-
 The Fourier series is defined using the equations described below.
 It takes in a single repeating unit of a periodic function and allows us to generate an infinite sum which converges
 to the same function. This is useful because the resultant sum ends up depending on trigonometric functions.
@@ -49,21 +71,32 @@ These coefficients allow us to define the Fourier series:
 Here we use a \(\sim\) because this series doesn't always converge to the desired function, although in most cases it
 does.
 
+\section{Conclusion}
+Note: these are just example citations.
 \cite[p. 150]{nixon:2019}
 \cite{thompson:1961}
 \cite{lestrel:1997}
 \cite{cartwright:1990}
 \cite{dryden:2016}
+.
 
+\section{Acknowledgements}
+
+\section{Appendix}
+Note: These are unlikely to be in the final report, they are simply there as an example appendix for now.
+\subsection*{main.cpp}
+\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/main.cpp}
+\subsection*{elliptic\_fourier.h}
+\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/elliptic_fourier.h}
+\subsection*{elliptic\_fourier.cpp}
+\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/elliptic_fourier.cpp}
+\subsection*{drawing\_area.h}
+\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/drawing_area.h}
+\subsection*{drawing\_area.cpp}
+\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/drawing_area.cpp}
+
+\section{Bibliography}
 \bibliographystyle{ieeetr}
 \bibliography{refs}
-
-\section*{Appendix}
-
-\subsection*{main.cpp}
-
-\begin{inputminted}{cpp}{../code/main.cpp}
-\end{inputminted}
-
 
 \end{document}
