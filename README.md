@@ -16,9 +16,17 @@ double mags[] = {1, 1.1, 0.8};
 
 ![wavy waves](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/waves1.png)
 
+We now have a radial version of this working:
+
+![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24.png)
+![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_000.png)
+![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_001.png)
+![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_002.png)
+![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_003.png)
+
 ### Todo:
 
-* Make this generate images that can be analysed.
+* ~~Make this generate images that can be analysed.~~
 * Make the fourier analysis side of the code.
 * Make this work elliptically instead of just linearly.
 
