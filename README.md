@@ -18,7 +18,6 @@ double mags[] = {1, 1.1, 0.8};
 
 We now have a radial version of this working:
 
-![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24.png)
 ![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_000.png)
 ![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_001.png)
 ![screenshot](https://raw.githubusercontent.com/ThatChapThere/uni-project/master/images/Mon04Mar24_002.png)
