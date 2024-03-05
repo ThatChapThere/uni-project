@@ -25,3 +25,7 @@ Try to add code snippets to the document body. Actually pseudocode is better (tr
 Talk about code libraries.
 
 Try to be more exact with the mathematics (lemmas, theorems, etc.). Find something rigourous for the elliptic Fourier.
+
+Stick pictures into logbook.
+Scan logbook using library scanner.
+Find examples of code to work off from maybe.
