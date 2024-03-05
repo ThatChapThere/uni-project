@@ -39,9 +39,23 @@ The Fourier transform extends the concept of the Fourier series (which openerate
 domain.
 
 \subsection{The Fourier Series}
-The Fourier series is defined using the equations described below.
-It takes in a single repeating unit of a periodic function and allows us to generate an infinite sum which converges
-to the same function. This is useful because the resultant sum ends up depending on trigonometric functions.
+The Fourier series
+(\ref{eq:fourierseries})
+lets you take a single repeating unit of a
+periodic function and use this to generate an infinite sum of
+sinusoidal functions that converge to it.
+This is useful because trigonmetric functions have mathematical
+properties that not all functions posess, allowing you to work
+with them nicely in more situations.
+\begin{equation}
+	\label{eq:fourierseries}
+	s(x) \sim A_0 + \sum_{n=1}^{\infty} \left(
+		A_n \cos \left( \frac{2\pi nx}{P} \right) +
+		B_n \sin \left( \frac{2\pi nx}{P} \right)
+	\right)
+\end{equation}
+The \(\sim\) symbol indicates that the series doesn't strictly
+converge in all cases.
 
 Firstly we have a set of numbers, \(A_0\), \(A_n\) and \(B_n\):
 
@@ -60,16 +74,6 @@ Here \(A_0\) is a constant, and \(A_n\) and \(B_n\) are functions of \(n\).
 In fact, since both the denominator of the fraction and the range of the integral for \(A_0\) are the same, \(P\),
 \(A_0\) is simply the average around which the function oscillates.
 
-These coefficients allow us to define the Fourier series:
-\begin{equation}
-	s(x) \sim A_0 + \sum_{n=1}^{\infty} \left(
-		A_n \cos \left( \frac{2\pi nx}{P} \right) +
-		B_n \sin \left( \frac{2\pi nx}{P} \right)
-	\right)
-\end{equation}
-
-Here we use a \(\sim\) because this series doesn't always converge to the desired function, although in most cases it
-does.
 
 \subsection{The Fourier Transform}
 The transform function ($S(t)$) for frequency $f$ is given by
@@ -81,6 +85,7 @@ The transform function ($S(t)$) for frequency $f$ is given by
 \subsection{Fourier Analysis}
 
 \subsection{Elliptical Fourier Analysis}
+The seminal paper on this topic is \cite{kuhl:1982}.
 
 \section{Processing the Images}
 In order to find shapes in our images for the purposes of analysis,
@@ -140,13 +145,6 @@ More examples include edge detection kernels like
 \subsection{Canny Edge Detection}
 
 \section{Conclusion}
-Note: these are just example citations.
-\cite[p. 150]{nixon:2019}
-\cite{thompson:1961}
-\cite{lestrel:1997}
-\cite{cartwright:1990}
-\cite{dryden:2016}
-.
 
 \section{Acknowledgements}
 
