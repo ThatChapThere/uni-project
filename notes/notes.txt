@@ -29,3 +29,24 @@ Try to be more exact with the mathematics (lemmas, theorems, etc.). Find somethi
 Stick pictures into logbook.
 Scan logbook using library scanner.
 Find examples of code to work off from maybe.
+
+Add history of the equation (background). Add applications for this (look in textbooks, especially relating to morphometrics).
+Somehow derive equations.
+Morphometry book is in the medial library.
+Look up elliptical fourier applications on eg. google scholar.
+Add accuracy metric to current code.
+Add a section about the program libraries used. Flowchart for algorithm.
+Danilo might email some derivations for the equations. (Or just read Lestrel paper).
+
+Add more explinations of what the values mean and how they're clearly derived so that you have the correspondence between the elliptic fourier analysis and the
+fourier series.
+
+Look into what useful information you can get from elliptical fourier transform.
+
+Don't forget that normalisation (by area) is important for comparing sets of coefficients.
+
+Test the code relative to the paper.
+
+You can make a description of PCA in the introduction and then state that the Elliptical Fourier is what is focused on.
+
+Make the title more specific (ie. paleoentology instead of biology).
