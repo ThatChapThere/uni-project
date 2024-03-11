@@ -8,6 +8,7 @@
 \usepackage{fourier}
 \usepackage{inconsolata}
 \usepackage{minted}
+\usepackage{nameref}
 
 \renewcommand{\baselinestretch}{1.25}
 \graphicspath{ {../images/} }
@@ -74,6 +75,13 @@ Here \(A_0\) is a constant, and \(A_n\) and \(B_n\) are functions of \(n\).
 In fact, since both the denominator of the fraction and the range of the integral for \(A_0\) are the same, \(P\),
 \(A_0\) is simply the average around which the function oscillates.
 
+A good intuition for why the Fourier series works is that the
+integral of the product of a function and a sinusoid is a measure
+of how well that function \textit{matches} the sinusoid.
+For example, the $\sin$ function perfectly matches itself since 
+$\sin^2x$ has a positive average, while the $\sin$ and $\cos$
+functions are a perfect anti-match since $\sin x \cos x$ simplifies
+to $\frac{\sin 2x}{2}$ which averages around $0$.
 
 \subsection{The Fourier Transform}
 The transform function ($S(t)$) for frequency $f$ is given by
@@ -87,6 +95,46 @@ The transform function ($S(t)$) for frequency $f$ is given by
 \subsection{Elliptical Fourier Analysis}
 The seminal paper on this topic is \cite{kuhl:1982}.
 
+For:
+\begin{equation}
+\begin{aligned}
+	x(t) = A_0+\sum_{n=1}^{\infty}\left[a_n\cos\frac{2n\pi t}{T}+b_n\sin\frac{2n\pi t}{T}\right] \\
+	y(t) = C_0+\sum_{n=1}^{\infty}\left[c_n\cos\frac{2n\pi t}{T}+d_n\sin\frac{2n\pi t}{T}\right]
+\end{aligned}
+\end{equation}
+
+\be
+
+This paper gives the coefficients (for a discrete set of points that form a closed contour):
+\begin{equation}
+\begin{aligned}
+	a_n&=\frac{T}{2n^2\pi^2}\sum_{p=1}^{K}\left[\cos\frac{2n\pi t_p}{T}-\cos\frac{2n\pi t_{p-1}}{T}\right] \\
+	b_n&=\frac{T}{2n^2\pi^2}\sum_{p=1}^{K}\left[\sin\frac{2n\pi t_p}{T}-\sin\frac{2n\pi t_{p-1}}{T}\right] \\
+	c_n&=\frac{T}{2n^2\pi^2}\sum_{p=1}^{K}\left[\cos\frac{2n\pi t_p}{T}-\cos\frac{2n\pi t_{p-1}}{T}\right] \\
+	d_n&=\frac{T}{2n^2\pi^2}\sum_{p=1}^{K}\left[\sin\frac{2n\pi t_p}{T}-\sin\frac{2n\pi t_{p-1}}{T}\right]
+\end{aligned}
+\end{equation}
+
+It also gives the centres:
+
+\begin{equation}
+\begin{aligned}
+	A_0 = \frac{1}{T}\sum_{p=1}^{K}\left[\frac{\Delta x_p}{2\Delta t_p}\left(t_p^2-t_{p-1}^2\right)+\xi_p\left(t_p-t_{p-1}\right) \right]\\
+	C_0 = \frac{1}{T}\sum_{p=1}^{K}\left[\frac{\Delta y_p}{2\Delta t_p}\left(t_p^2-t_{p-1}^2\right)+\delta_p\left(t_p-t_{p-1}\right) \right]
+\end{aligned}
+\end{equation}
+
+Where:
+
+\begin{equation}
+\begin{aligned}
+	\xi_p = \sum_{j=1}^{p-1}\Delta x_j-\frac{\Delta x_p}{\Delta t_p}\sum_{j=1}^{p-1}\Delta t_j \\
+	\delta_p = \sum_{j=1}^{p-1}\Delta y_j-\frac{\Delta y_p}{\Delta t_p}\sum_{j=1}^{p-1}\Delta t_j
+\end{aligned}
+\end{equation}
+
+You can see this implemented in \nameref{code:grapharea}.
+
 \section{Processing the Images}
 In order to find shapes in our images for the purposes of analysis,
 we will need to detect edges. For this we will use the Canny Edge
@@ -96,10 +144,7 @@ detection method, developed by John F. Canny.
 The most basic aspect of edge detection is the convolution kernel.
 This is an $M{\times}M: \{M=2n+1, n\in\mathbb{N}\}$ matrix
 (an odd sided square matrix).
-Odd side lengths allow the kernel to be centered at each pixel.
-
-If we let the function $f(x,y)$ represent the original image,
-$g(x,y)$ represent the convolved image and $\omega$
+Odd side lengths allow the kernel to be centered at each pixel.  If we let the function $f(x,y)$ represent the original image, $g(x,y)$ represent the convolved image and $\omega$
 represent the kernel, then:
 \begin{equation}
 	g(x,y)=\sum_{i=-n}^{n}\sum_{j=-n}^{n}\omega(i,j)f(x-i,y-j)
@@ -150,16 +195,9 @@ More examples include edge detection kernels like
 
 \section{Appendix}
 Note: These are unlikely to be in the final report, they are simply there as an example appendix for now.
-\subsection*{main.cpp}
-\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/main.cpp}
-\subsection*{elliptic\_fourier.h}
-\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/elliptic_fourier.h}
-\subsection*{elliptic\_fourier.cpp}
-\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/elliptic_fourier.cpp}
-\subsection*{drawing\_area.h}
-\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/drawing_area.h}
-\subsection*{drawing\_area.cpp}
-\inputminted[breakanywhere=true]{cpp}{../code/elliptic_fourier/drawing_area.cpp}
+\subsection*{graph\_area.cpp}
+\label{code:grapharea}
+\inputminted[breakanywhere=true, tabsize=4]{cpp}{../code/elliptic_fourier/graph_area.cpp}
 
 \section{Bibliography}
 \bibliographystyle{ieeetr}
