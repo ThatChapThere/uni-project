@@ -1,5 +1,4 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include <gtkmm/applicationwindow.h>
 #include "graph_area.h"
@@ -10,10 +9,6 @@ public:
 	Window();
 	~Window() override;
 protected:
-	// This will create a graph area
 	GraphArea ga;
-	GraphArea ga2;
 	void screenshot();
 };
-
-#endif

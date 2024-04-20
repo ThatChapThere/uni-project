@@ -8,7 +8,6 @@ Window::Window()
 {
 	add_action("screenshot", sigc::mem_fun(*this, &Window::screenshot));
 	set_child(ga);
-	set_child(ga2);
 }
 
 void Window::screenshot() {

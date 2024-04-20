@@ -15,9 +15,6 @@
 **/logbook_notes.txt
 **/FeatureExtractionMarkNixon.pdf
 
-# Makefiles
-**/makefile
-
 # Executables
 code/test
 code/testpp
