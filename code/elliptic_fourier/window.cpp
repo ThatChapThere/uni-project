@@ -5,13 +5,12 @@
 #include <iostream>
 
 Window::Window()
+:test_button("click me!")
 {
-	add_action("screenshot", sigc::mem_fun(*this, &Window::screenshot));
-	set_child(ga);
-}
-
-void Window::screenshot() {
-	std::cout << "menu item clicked" << std::endl;
+	ga.set_hexpand(true);
+	test_box.append(test_button);
+	test_box.prepend(ga);
+	set_child(test_box);
 }
 
 Window::~Window()

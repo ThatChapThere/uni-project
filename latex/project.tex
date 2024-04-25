@@ -19,7 +19,7 @@
 \includegraphics[scale = 0.5]{LincolnLogo}
 \newline\newline
 \thispagestyle{empty}
-    \textbf{\huge{Classification of Biological Organisms from Images Using Advanced Mathematical Techniques} \\
+    \textbf{\huge{Analysis of Shapes in Nature Using Advanced Mathematical and Computing Techniques} \\
     [100pt] \Large{Timothy Smith\\25796944} \\
     [40pt]\LARGE{Supervised by Dr Danilo Roccatano}\\
     [50pt]\today \\
@@ -28,18 +28,36 @@
 
 \newpage
 \section*{Abstract}
+Placeholder abstract text
 
 \newpage
 \tableofcontents
 
 \newpage
 \section{Introduction}
-\section{The Elliptic Fourier Transform}
+
+\section{Theoretical Background}
+\subsection{The Elliptic Fourier Transform}
 The Fourier transform is a way of finding constituent frequencies within a function on the real domain.
 The Fourier transform extends the concept of the Fourier series (which openerates on a bounded interval) to the real
 domain.
+That is to say, the Fourier Series operations on a periodic function with period
+$P$ and decomposes it into a series of sinusoidal waves, while the Fourier transform
+does the same but for any complex valued function $f(x)$.
 
-\subsection{The Fourier Series}
+[Get references from book from differential equations module]
+
+The elliptic Fourier transform extends this concept to a finite series of points
+on the $(x, y)$ plane. This is useful for practical applications in
+computing because one of the most typical ways to model a two-dimensional curve in
+a computer program is just that, a finite series of points on the $(x, y)$ plane.
+
+The way that the elliptic Fourier transform works is by taking said
+series of points and assuming that they are connected by straight lines, and modelling
+$x$ and $y$ coordinates as periodic functions of a parameter $t$, such that
+$x = x(t)$ and $y = y(t)$. Importantly, $x(t)$ and $y(t)$ have the same period $T$.
+
+\subsubsection{The Fourier Series}
 The Fourier series
 (\ref{eq:fourierseries})
 lets you take a single repeating unit of a
@@ -58,15 +76,17 @@ with them nicely in more situations.
 The \(\sim\) symbol indicates that the series doesn't strictly
 converge in all cases.
 
-Firstly we have a set of numbers, \(A_0\), \(A_n\) and \(B_n\):
+The coefficients \(A_0\), \(A_n\) and \(B_n\) are given by
+(\ref{eq:fourierseriescoefficients}).
 
 \begin{equation}
+\label{eq:fourierseriescoefficients}
 \begin{aligned}
 	A_0 &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
 		s(x) \,dx \\
 	A_n &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
 		s(x) \cos \left(\frac{2\pi nx}{P}\right) \,dx \\
-	A_b &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
+	B_n &= \frac{1}{P} \int_{-\frac{P}{2}}^{\frac{P}{2}}
 		s(x) \sin \left(\frac{2\pi nx}{P}\right) \,dx \\
 \end{aligned}
 \end{equation}
@@ -83,16 +103,35 @@ $\sin^2x$ has a positive average, while the $\sin$ and $\cos$
 functions are a perfect anti-match since $\sin x \cos x$ simplifies
 to $\frac{\sin 2x}{2}$ which averages around $0$.
 
-\subsection{The Fourier Transform}
+\subsubsection{Exponential Form}
+The concept of the Fourier series can actually be extended to the 
+complex numbers $\mathbb{C}$.
+
+This isn't terribly surprising, since there is a nice connection between the
+complex numbers and trigonometric functions given by Euler's formula (\ref{eq:eulers}).
+\begin{equation} \label{eq:eulers}
+	e^{ix}=\cos{x}+i\sin{x}
+\end{equation}
+Thus if we take $A_n$  and $B_n$ from
+(\ref{eq:fourierseriescoefficients})
+we can let a new variable
+\begin{displaymath}
+	c_n = A_n + i B_n
+\end{displaymath}
+and we can get
+\begin{equation}
+	s(x) \sim A_0 + \sum_{n=1}^{\infty}
+		c_ne^{i\frac{2\pi nx}{P}}
+\end{equation}
+
+\subsubsection{The Fourier Transform}
 The transform function ($S(t)$) for frequency $f$ is given by
 (\ref{fourier:transform}).
 \begin{equation} \label{fourier:transform}
 	S(t)=\int_{-\infty}^{\infty}s(t)\cdot \mathrm{e}^{-i2\pi ft} dt
 \end{equation}
 
-\subsection{Fourier Analysis}
-
-\subsection{Elliptical Fourier Analysis}
+\subsubsection{Elliptical Fourier Analysis}
 The seminal paper on this topic is \cite{kuhl:1982}.
 
 For:
@@ -135,12 +174,12 @@ Where:
 
 You can see this implemented in \nameref{code:grapharea}.
 
-\section{Processing the Images}
+\subsection{Processing the Images}
 In order to find shapes in our images for the purposes of analysis,
 we will need to detect edges. For this we will use the Canny Edge
 detection method, developed by John F. Canny.
 
-\subsection{Convolution Kernels}
+\subsubsection{Convolution Kernels}
 The most basic aspect of edge detection is the convolution kernel.
 This is an $M{\times}M: \{M=2n+1, n\in\mathbb{N}\}$ matrix
 (an odd sided square matrix).
@@ -187,20 +226,27 @@ More examples include edge detection kernels like
 \end{minipage}
 \end{center}
 
-\subsection{Canny Edge Detection}
+\subsubsection{Active Contours}
+
+\subsubsection{Canny Edge Detection}
+
+\section{Proposed Methodology}
+
+\section{Project Results}
 
 \section{Conclusion}
 
 \section{Acknowledgements}
+
+\pagebreak
+\section{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{refs}
 
 \section{Appendix}
 Note: These are unlikely to be in the final report, they are simply there as an example appendix for now.
 \subsection*{graph\_area.cpp}
 \label{code:grapharea}
 \inputminted[breakanywhere=true, tabsize=4]{cpp}{../code/elliptic_fourier/graph_area.cpp}
-
-\section{Bibliography}
-\bibliographystyle{ieeetr}
-\bibliography{refs}
 
 \end{document}
