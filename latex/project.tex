@@ -9,6 +9,7 @@
 \usepackage{inconsolata}
 \usepackage{minted}
 \usepackage{nameref}
+\usepackage{hyperref}
 
 \renewcommand{\baselinestretch}{1.25}
 \graphicspath{ {../images/} }
@@ -230,21 +231,261 @@ More examples include edge detection kernels like
 
 \subsubsection{Canny Edge Detection}
 
-\section{Proposed Methodology}
+\pagebreak
+\section{Results}
+\subsection{Data Considered}
+A set of images of leaves were taken from \cite[Fig. 111-8]{benson:1957}.
 
-\section{Project Results}
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Cordate}
+		\includegraphics[width=\textwidth]{../code/contour/original/cordate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Cuneate}
+		\includegraphics[width=\textwidth]{../code/contour/original/cuneate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Deltoid}
+		\includegraphics[width=\textwidth]{../code/contour/original/deltoid}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Elliptic}
+		\includegraphics[width=\textwidth]{../code/contour/original/elliptic}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Hastate}
+		\includegraphics[width=\textwidth]{../code/contour/original/hastate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Lanceolate}
+		\includegraphics[width=\textwidth]{../code/contour/original/lanceolate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Linear}
+		\includegraphics[width=\textwidth]{../code/contour/original/linear}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Obcordate}
+		\includegraphics[width=\textwidth]{../code/contour/original/obcordate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Obdeltoid}
+		\includegraphics[width=\textwidth]{../code/contour/original/obdeltoid}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Oblanceolate}
+		\includegraphics[width=\textwidth]{../code/contour/original/oblanceolate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Oblong}
+		\includegraphics[width=\textwidth]{../code/contour/original/oblong}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Obovate}
+		\includegraphics[width=\textwidth]{../code/contour/original/obovate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Orbiculate}
+		\includegraphics[width=\textwidth]{../code/contour/original/orbiculate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Ovate}
+		\includegraphics[width=\textwidth]{../code/contour/original/ovate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Peltate}
+		\includegraphics[width=\textwidth]{../code/contour/original/peltate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Reniform}
+		\includegraphics[width=\textwidth]{../code/contour/original/reniform}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Rhombic}
+		\includegraphics[width=\textwidth]{../code/contour/original/rhombic}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Sagitate}
+		\includegraphics[width=\textwidth]{../code/contour/original/sagitate}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Spathulate}
+		\includegraphics[width=\textwidth]{../code/contour/spathulate_with_signature}
+	\end{minipage}
+	\begin{minipage}{0.19\textwidth}
+		\caption{Subulate}
+		\includegraphics[width=\textwidth]{../code/contour/original/subulate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+\pagebreak
+
+\subsection{Image Processing}
+These images were then processed using the MATLAB\textsuperscript{\textregistered} script \textbf{\nameref{code:contour}}
+in order to produce comma--separated value (.csv) files with a series
+of coordinates representing the contour.
+This script is slightly inspired by work done previously in
+the coursework for the \textit{Image Processing} module (\textbf{CMP3108}).
+
+The images were first converted to grayscale and then black and white.
+\begin{minted}{matlab}
+    leaf_image = im2gray(leaf_image);
+    leaf_image = imbinarize(leaf_image);
+    ...
+    leaf_image = 255 * leaf_image;
+\end{minted}
+As an example, figures (\ref{binarised:1}), (\ref{binarised:2}) and (\ref{binarised:3}) show what three of the leaf types looked like after
+this process.
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Reniform (binarised)}
+		\label{binarised:1}
+		\includegraphics[width=\textwidth]{../code/contour/binarised/reniform}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Spathulate (binarised)}
+		\label{binarised:2}
+		\includegraphics[width=\textwidth]{../code/contour/binarised/spathulate}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Subulate (binarised)}
+		\label{binarised:3}
+		\includegraphics[width=\textwidth]{../code/contour/binarised/subulate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+Next, an active contour was applied, creating a binary image deliniating the regions
+for inside and outside the leaf.
+\begin{minted}{matlab}
+    leaf_contour = activecontour(leaf_image, contour_mask, 1000, "edge");
+\end{minted}
+Figures (\ref{contourmask:1}), (\ref{contourmask:2}) and (\ref{contourmask:3}) show what these three leaf types looked like after
+this process.
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Reniform (after active contour)}
+		\label{contourmask:1}
+		\includegraphics[width=\textwidth]{../code/contour/contour_mask/reniform}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Spathulate (after active contour)}
+		\label{contourmask:2}
+		\includegraphics[width=\textwidth]{../code/contour/contour_mask/spathulate}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Subulate (after active contour)}
+		\label{contourmask:3}
+		\includegraphics[width=\textwidth]{../code/contour/contour_mask/subulate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+The final step is extracting a contour from these binary images
+and write these contours to csv files.
+This was done using MATLAB\textsuperscript{\textregistered}'s
+built-in \verb|bwboundaries| function.
+\begin{minted}{matlab}
+    leaf_boundary = bwboundaries(leaf_contour, "noholes");
+    ...
+    leaf_boundary = leaf_boundary{1};
+    writematrix(leaf_boundary, strcat("csv/", leaf_type, ".csv"));
+\end{minted}
+
+After this process is completed the code produces a graph of these
+values for manual checking purposes.
+\begin{minted}{matlab}
+    plot(leaf_boundary(:,2), -leaf_boundary(:,1));
+    axis equal;
+\end{minted}
+This actually proved invaluable since some of the images were initially broken,
+with the contours containing unwanted invaginations. This turned out to be caused
+by the initial boundary of the active contour being too thick and
+encroaching on the leaves themselves. The solution was to lower the
+thickness of the initial contour, by lowering the value of
+\verb|contour_border_thickness| to 15 pixels.
+\begin{minted}{matlab}
+    contour_border_thickness = 15;
+    contour_mask( ...
+        contour_border_thickness:end-contour_border_thickness, ...
+        contour_border_thickness:end-contour_border_thickness ...
+    ) = 1;
+\end{minted}
+For examples of these graphs, see figures (\ref{contour:1}), (\ref{contour:2}) and (\ref{contour:3}).
+\begin{figure}[!hbt]
+\begin{centre}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Reniform (contour graph)}
+		\label{contour:1}
+		\includegraphics[width=\textwidth]{../code/contour/contour/reniform}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Spathulate (contour graph)}
+		\label{contour:2}
+		\includegraphics[width=\textwidth]{../code/contour/contour/spathulate}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\caption{Subulate (contour graph)}
+		\label{contour:3}
+		\includegraphics[width=\textwidth]{../code/contour/contour/subulate}
+	\end{minipage}
+\end{centre}
+\end{figure}
+
+\subsection{Elliptic Fourier Analysis}
 
 \section{Conclusion}
 
 \section{Acknowledgements}
+I'd like to start by thanking paleontologists and science communicators
+David Moscato and Will Harris of the \textit{Common Descent} podcast \cite{moscato:2024}
+for sparking an interest in the life sciences that led me to choosing
+this particular project subject.
+
+I'd also like to thank my friends and family for supporting me throughout the project,
+especially my friends Tom and Ruby for giving some much needed last-minute encouragement.
+
+I'd also like to extend appreciation for my personal tutor, Bart Vorselaars,
+for helping me with some personal issues in a way that took some stress off during
+the later stages of this project.
+
+Finally, and perhaps most importantly, I'd like to thank my project supervisor
+Danilo Roccatano for assisting me effectively throughout the project and helping manage time
+and prioritise tasks to meet the deadline near the end.
 
 \pagebreak
 \section{Bibliography}
 \bibliographystyle{ieeetr}
 \bibliography{refs}
 
+\pagebreak
 \section{Appendix}
-Note: These are unlikely to be in the final report, they are simply there as an example appendix for now.
+All code used in this project can be found hosted on my personal GitHub
+\cite{smith:2024}.
+
+\subsection*{contour.m}
+\label{code:contour}
+\inputminted[breakanywhere=true, tabsize=4]{matlab}{../code/contour/contour.m}
+
 \subsection*{graph\_area.cpp}
 \label{code:grapharea}
 \inputminted[breakanywhere=true, tabsize=4]{cpp}{../code/elliptic_fourier/graph_area.cpp}

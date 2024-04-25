@@ -32,9 +32,11 @@ for leaf_type = leaf_types
     leaf_contour = activecontour(leaf_image, contour_mask, 1000, "edge");
     imwrite(leaf_contour, strcat("contour_mask/", leaf_type, ".png"));
 
-    % Find the boundary of the image as a set of points,
-    % and save to a csv file
+    % Find the boundary of the image as a set of points
     leaf_boundary = bwboundaries(leaf_contour, "noholes");
+
+    % Convert the boundary from a cell to a matrix,
+    % and save to a csv file
     leaf_boundary = leaf_boundary{1};
     writematrix(leaf_boundary, strcat("csv/", leaf_type, ".csv"));
 
