@@ -48,3 +48,16 @@ Test the code relative to the paper.
 You can make a description of PCA in the introduction and then state that the Elliptical Fourier is what is focused on.
 
 Make the title more specific (ie. paleoentology instead of biology).
+
+error caluculation is important
+table of coeffs and errors
+n terms based on errors
+remove stems
+
+mention potenial to write own implementations in cpp but used matlab
+
+do real photos part
+
+error as funcion of term count plotted
+
+compare leaf stems with and without
