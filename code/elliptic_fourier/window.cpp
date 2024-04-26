@@ -5,12 +5,8 @@
 #include <iostream>
 
 Window::Window()
-:test_button("click me!")
 {
-	ga.set_hexpand(true);
-	test_box.append(test_button);
-	test_box.prepend(ga);
-	set_child(test_box);
+	set_child(ga);
 }
 
 Window::~Window()

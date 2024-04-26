@@ -12,6 +12,4 @@ public:
 	~Window() override;
 protected:
 	GraphArea ga;
-	Gtk::Button test_button;
-	Gtk::Box test_box;
 };
