@@ -5,7 +5,7 @@ leaf_types = ["cordate" "cuneate" "deltoid" "elliptic" "hastate" ...
 ];
 
 for leaf_type = leaf_types
-    leaf_image = imread(strcat("original/", leaf_type, '.png'));
+    leaf_image = imread(strcat("stemless/", leaf_type, '.png'));
 
     % Convert image to grayscale and binarise
     leaf_image = im2gray(leaf_image);
